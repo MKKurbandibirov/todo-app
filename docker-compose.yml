@@ -6,7 +6,7 @@ services:
       POSTGRES_USER: magomed
       POSTGRES_PASSWORD: 1111
       POSTGRES_DB: todo-app
-#      PGDATA: /data/postgres
+      PGDATA: /data/postgres
     volumes:
       - ./schema/init.up.sql:/docker-entrypoint-initdb.d/schema.sql
       - ./postgres:/data/postgres
