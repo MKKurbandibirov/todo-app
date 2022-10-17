@@ -1,0 +1,14 @@
+services:
+
+  postgres:
+    image: postgres:12
+    environment:
+      POSTGRES_USER: magomed
+      POSTGRES_PASSWORD: 1111
+      POSTGRES_DB: todo-app
+#      PGDATA: /data/postgres
+    volumes:
+      - ./schema/init.up.sql:/docker-entrypoint-initdb.d/schema.sql
+      - ./postgres:/data/postgres
+    ports:
+      - "5442:5432"
