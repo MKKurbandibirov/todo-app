@@ -1,1 +1,9 @@
 port: "8000"
+
+db:
+  host: "localhost"
+  port: "5442"
+  username: "magomed"
+  password: "1111"
+  dbname: "todo-app"
+  sslmode: "disable"
