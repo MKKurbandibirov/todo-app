@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"github.com/MKKurbandibirov/todo-app"
 	"github.com/jmoiron/sqlx"
-	"github.com/sirupsen/logrus"
 	"strings"
 )
 
@@ -88,9 +87,6 @@ func (t *TodoListPostgres) Update(userId, listId int, input todo.UpdateListInput
 	query := fmt.Sprintf("UPDATE %s tl SET %s FROM %s ul WHERE tl.id = ul.list_id AND ul.list_id=$%d AND ul.user_id=$%d",
 		todoListsTable, setQuery, usersListsTable, argId, argId+1)
 	args = append(args, listId, userId)
-
-	logrus.Debugf("update query %s", query)
-	logrus.Debugf("args %s", args)
 
 	_, err := t.db.Exec(query, args...)
 	return err
